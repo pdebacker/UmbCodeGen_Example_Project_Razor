@@ -1,0 +1,41 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<MoviesRazor.Models.HomePage>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="content">
+    <div id="sidebar" class="umbModuleContainer">
+    </div>
+    <div id="homepage">
+            <h1>@Model.Header</h1>
+            <p>@Model.IntroText</p>
+
+            <h2>@Model.HeaderTopMovies</h2>
+            <div id="movies">
+                <ul>
+                @foreach(var movie in Model.TopMovies)
+                {
+                    <li>
+                        <h3>@movie.Title</h3>
+                        <a href="@movie.NodeUrl"><img src="@movie.Image.Url"></a>
+                        <div>@movie.Genre.NodeName</div>
+                    </li>
+                }
+                </ul>
+            </div>
+
+            <h2>@Model.HeaderLatestNews</h2>
+            <div id="news">
+                <ul>
+                @foreach(var newsItem in Model.NewsListItems)
+                {
+                    <li>
+                        <h3><a href="{{NodeUrl}}">@newsItem.Title</a></h3>
+                        <div>@newsItem.IntroShort<span>@newsItem.DisplayDate</span></div>
+                    </li>
+                }
+                </ul>
+            </div>
+
+    </div>
+</div>

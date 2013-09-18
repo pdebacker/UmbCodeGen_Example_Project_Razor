@@ -1,0 +1,54 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<MoviesRazor.Models.Cinema>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="content">
+
+    <div id="sidebar" class="umbModuleContainer">
+        <h3>Address</h3>
+        <div class="address">
+            <span>@Model.AddressStreet</span><span>@Model.AddressNumber</span><br><span>@Model.AddressPostalCode</span>,<span>@Model.AddressCity</span>
+        </div>
+        <h3>Contact</h3>
+        <div class="contact">
+            @if (!string.IsNullOrEmpty(Model.ContactPhoneNumber)){<span>@Model.ContactPhoneNumber</span><br>}
+            @if (!string.IsNullOrEmpty(Model.ContactEmail)){<span>@Model.ContactEmail</span><br>}
+            @if (Model.ContactWebsite != null){<a class="silenthref" href="@Model.ContactWebsite.Url">@Model.ContactWebsite.Url</a><br>}
+        </div>
+    </div>
+
+
+    <h1>@Model.NodeName</h1>
+    <div class="bodyText">
+    <h2>Movies</h2>
+    <ul>
+    @foreach (var movieProgram in Model.MoviePrograms)
+    {
+        <li class="movieProgram">
+            <p>@movieProgram.Name</p>
+            <div>
+            <a href="@movieProgram.MovieLink.Url"><img src="@movieProgram.MovieInfo.Image.Url"></a>
+            <a href="@movieProgram.MovieLink.Url">More...</a>
+            </div>
+            <div>
+                @if (!string.IsNullOrEmpty(movieProgram.AdditionalInformation))
+                {<span>@movieProgram.AdditionalInformation</span><br>}
+                @if (movieProgram.SpokenLanguage != null)
+                {<span>Spoken language: </span><span>@movieProgram.SpokenLanguage</span><br>}
+                @if (movieProgram.Subtitles)
+                {<span>Subtitles</span><br>}
+                @if (movieProgram.ThreeD)
+                {<span>3D</span>}
+            </div>
+            <div>
+                @foreach (var movieTime in movieProgram.MovieTimes)
+                {
+                    <span>@movieTime.DisplayDate</span><span class="tab">@movieTime.DisplayTimes</span><br>
+                }
+            </div>
+        </li>
+    }
+    </ul>
+    </div>
+</div>

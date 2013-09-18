@@ -1,0 +1,231 @@
+﻿#homepage h2
+{
+    clear:left;
+}
+#cities li.cinemalink:hover
+{
+    list-style: disc;
+    cursor: pointer;
+}
+#cities li.cinemalink a
+{
+    color: #666666;
+}
+
+#sidebar div.address span
+{
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+li.movieProgram
+{
+    position:relative;
+    margin-bottom: 15px;
+    padding: 2px 0px 5px 10px;
+    border: 1px solid #cccccc;
+    width:100%;
+    float:left;
+}
+li.movieProgram div:first-of-type
+{
+    width:125px;
+}
+li.movieProgram div
+{
+    width:40%;
+    float:left;
+}
+li.movieProgram p
+{
+    font-weight: bold;
+    margin: 9px 0px 5px !important;
+    padding: 0px;
+}
+li.movieProgram img
+{
+    margin-top: 6px;
+    margin-right: 10px;
+}
+li.movieProgram a
+{
+    text-decoration: none;
+    clear:left;
+    display: block;
+}
+li.movieProgram a:hover
+{
+   color: #6666ee;
+   text-decoration: none;
+}
+li.movieProgram span
+{
+    float:left;
+    width:120px;
+}
+li.movieProgram span.tab
+{
+    float:left;
+    width:180px;
+}
+#sidebar a.silenthref, a.silenthref:visited
+{
+    color: #666666;
+    text-decoration: none;
+}
+
+#sidebar a.silenthref:hover
+{
+    color: #6666ee;
+    text-decoration: none;
+}
+
+#movie div.bodyText, #newsItem div.bodyText
+{
+    margin-bottom: 10px;
+}
+
+#movie div img, #newsItem div img
+{
+    float:left;
+    width: 150px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-right: 15px;
+}
+#movie div p, #newsItem div p
+{
+    width:70%;
+    margin: 0px 10px 10px 10px;
+}
+#movie div p strong
+{
+    font-weight: bold;
+}
+#movie .property
+{
+    font-weight: bold;
+    padding-right:5px;
+    display: block;
+    float:left;
+    width:80px;
+}
+#movie .value
+{
+    font-weight: normal;
+    padding-left:5px;
+    float:left;
+    width:70%;
+}
+
+#movies
+{
+    width:60%;
+}
+#movies h3
+{
+    height:40px;
+    line-height:18px;
+    text-align: center;
+    vertical-align: bottom;
+    font-weight: bold;
+}
+
+#movies li
+{
+    float: left;
+    width: 25%;
+    margin-bottom: 20px;
+}
+
+#movies li img
+{
+    float:none;
+    margin: 0 0 0 32px;
+    width: 114px;
+}
+#movies li div
+{
+    font-size:smaller;
+    text-align: center;
+}
+
+#sidebar .genres li:hover, #sidebar .genres li.active
+{
+    list-style:disc; 
+    cursor: pointer;
+}
+#sidebar .genres a
+{
+    color: #666680;
+    text-decoration: none;
+}
+#sidebar .genres a.active
+{
+    color: #ff0000;
+    text-decoration: none;
+}
+#sidebar .genres a:hover
+{
+    text-decoration:underline;
+}
+
+#news ul
+{
+    margin-top: 40px;
+    width: 60%;
+}
+#news li
+{
+    margin-bottom: 15px;
+}
+#news li div span
+{
+    float: right;
+}
+
+#news li a, #news li a:active, #news li a:visited
+{
+   color: #666666;
+   font-weight: bold;
+}
+#news li a:hover
+{
+   color: #6666C0;
+}
+#news h1
+{
+    font-size: 2em;
+    margin-top: 40px;
+}
+
+#testmodel .property
+{
+    font-weight: bold;
+    padding-right:5px;
+    display: block;
+    float:left;
+    width:200px;
+}
+#testmodel .value
+{
+    font-weight: normal;
+    padding-left:5px;
+    float:left;
+    width:70%;
+}
+
+#testmodel .richtext
+{
+    padding-left:5px;
+    float:left;
+    width:70%;
+}
+#testmodel .richtext strong
+{
+    font-weight: bold;
+}
+#testmodel h2
+{
+    clear:left;
+}

@@ -1,0 +1,28 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<MoviesRazor.Models.NewsItem>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="content">
+    <div id="sidebar" class="umbModuleContainer">
+    </div>
+
+    <div id="news">
+           <div id="newsItem">
+            <h1>@Model.Title</h1>
+            <div><span>@Model.Source, </span><span>@Model.DisplayDate</span></div>
+            <div class="bodyText">
+            @foreach(var paragraph in Model.Paragraphs)
+            {
+                <div class="clearfix">
+                <h2>@paragraph.SubTitle</h2>
+                @if(paragraph.Image != null){ <img src="@paragraph.Image.Url">}
+                @Html.Raw(paragraph.Text)
+                </div>
+            }
+            </div>
+         </div>
+    </div>
+
+</div>

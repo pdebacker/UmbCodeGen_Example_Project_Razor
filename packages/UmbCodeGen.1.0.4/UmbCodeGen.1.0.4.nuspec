@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>UmbCodeGen</id>
+    <version>1.0.4</version>
+    <title>Umbraco Code Generator</title>
+    <authors>Peter de Backer</authors>
+    <owners>Peter de Backer</owners>
+    <projectUrl>https://github.com/pdebacker/UmbCodeGen</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>C# code generator to generate Models (POCO’s) for Umbraco Document Types using T4 templates. These Models can be populated with data from Umbraco nodes via the generated ModelFactory class. The major Umbraco Data Types are supported including some uComponent Data Types like DataType Grid. Ideal when Razor or Mustache is used as view engine.</description>
+    <summary>C# code generator to generate Models (POCO’s) and a ModelFactory for Umbraco Document Types using T4 templates.</summary>
+    <releaseNotes>See Github Wiki for documentation.</releaseNotes>
+    <copyright>Peter de Backer</copyright>
+    <language />
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.ComponentModel.DataAnnotations" targetFramework=".NETFramework4.0" />
+      <frameworkAssembly assemblyName="System.Runtime.Serialization" targetFramework=".NETFramework4.0" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

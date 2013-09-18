@@ -1,0 +1,65 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    @{
+        //@Styles.Render("~/Content/css-all")
+        //@Scripts.Render("~/bundles/modernizr")
+     }
+
+    <script src="/scripts/js/jquery.js" type="text/javascript"></script>
+    <script src="/scripts/js/script.js" type="text/javascript"></script>
+    <script src="/scripts/js/movies.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/feijoa-default.css" media="screen">
+    <link rel="stylesheet" href="/css/feijoa-mini.css" media="screen and (max-device-width: 320px) and (max-device-width: 480px)">
+    <link rel="stylesheet" href="/css/feijoa-progressive.css" media="screen and (min-device-width:800px)">
+    <link rel="stylesheet" href="/css/feijoa-colour.css" media="screen">
+    <link rel="stylesheet" href="/fonts/museo/museo.css" media="screen">
+    <link rel="stylesheet" href="/css/movies.css" media="screen">
+
+</head>
+<body id="themetype" class="light">
+    <div id="main">
+
+        <div id="top">
+            <div class="top">
+                <h1 id="siteName">
+                    <a href="/" id="siteHome">Movies
+                    </a>
+                </h1>
+                <h2 id="siteDescription">Now showing
+                </h2>
+
+                @Html.Partial("MainNavigation", ViewData["MainMenu"])   @{ /* or Html.Partial("MainNavigation", Model.Menu)*/ }
+                <ul id="topNavigation" style="float: right; clear: none;">
+                    <li><a class="navigation" href="/testmodelpage"><span>Test</span></a></li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div id="body">
+            @RenderBody()
+        </div>
+
+    </div>
+
+    <div id="footer">
+        <div class="colour-filter"></div>
+        <div class="footer">
+            <h5><a id="feijoa" href="http://www.hellofeijoa.com/skins">Feijoa Skins
+            </a></h5>
+        </div>
+    </div>
+    @{
+    // @Scripts.Render("~/bundles/jquery")
+    // @RenderSection("scripts", required: false)
+    }
+</body>
+</html>

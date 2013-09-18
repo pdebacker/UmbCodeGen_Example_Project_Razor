@@ -1,0 +1,53 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<MoviesRazor.Models.MoviePage>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="content">
+    <div id="sidebar" class="umbModuleContainer">
+           @Html.Partial("MovieDictionary", Model.MovieDictionaryItem)
+    </div>
+
+    <div id="movie">
+        <h1>@Model.Movie.Title</h1>
+        <div class="bodyText">
+        <img src="@Model.Movie.Image.Url">
+        <p>@Model.Movie.Introduction</p>
+        </div>
+        <div class="bodyText">
+        @if (Model.Movie.RunningLength > 0){<span class="property">Length</span><span class="value">@Model.Movie.RunningLength min</span><br>}
+        @if (Model.Movie.Genre > 0) {<span class="property">Genre</span><span class="value">@Model.Movie.GenreInfo.NodeName</span><br>}
+        @if (!string.IsNullOrEmpty(Model.Movie.DirectedBy)) {<span class="property">Directed by </span><span class="value">@Model.Movie.DirectedBy</span><br>}
+        @if (!string.IsNullOrEmpty(Model.Movie.Writer)) {<span class="property">Written by </span><span class="value">@Model.Movie.Writer</span><br>}
+        @if (!string.IsNullOrEmpty(Model.Movie.Cast)) {<span class="property">Starring </span><span class="value">@Model.Movie.Cast</span><br>}
+        </div>
+        <div class="bodyText">
+        @foreach (var paragraph in Model.Movie.Paragraphs)
+        {
+                <div class="clearfix">
+                <h2>@paragraph.SubTitle</h2>
+                @if(paragraph.Image != null){<img src="@paragraph.Image.Url">}
+                @Html.Raw(paragraph.Text)
+                </div>
+        }
+        </div>
+        <div id="movies" class="bodyText">
+           @if (Model.Movie.RelatedMovieItems.Count > 0)
+           {
+               <h2>What others have seen</h2>
+               <ul>
+                @foreach (var relatedMovie in Model.Movie.RelatedMovieItems)
+                {
+                    <li>
+                        <h3>@relatedMovie.Title</h3>
+                        <a href="@relatedMovie.NodeUrl"><img src="@relatedMovie.Image.Url"></a>
+                        <div>@relatedMovie.Genre.NodeName</div>
+                    </li>
+                }
+                </ul>
+           }
+        </div>
+    </div>
+
+</div>

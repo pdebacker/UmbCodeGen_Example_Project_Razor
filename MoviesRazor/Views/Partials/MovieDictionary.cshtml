@@ -1,0 +1,19 @@
+﻿@model MoviesRazor.Classes.ShowDictionary.MovieDictionaryItem
+
+<div id="cities">
+    <h2>Cinemas</h2>
+    <ul>
+        @foreach(var city in Model.Cities)
+        {
+                <li>
+                    <h3>@city.CityName</h3>
+                    <ul>
+                        @foreach(var cinema in city.Cinemas) 
+                        {
+                        <li class="cinemalink"><a href="@cinema.NodeUrl">@cinema.Name</a></li>
+                        }
+                    </ul>
+                </li>
+        }
+    </ul>
+</div>

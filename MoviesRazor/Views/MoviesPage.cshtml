@@ -1,0 +1,16 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<MoviesRazor.Models.MoviesPage>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="content">
+    <div id="sidebar" class="umbModuleContainer">
+        @Html.Partial("GenreFilter", Model.Genres)
+    </div>
+
+    <div id="movies">
+        @Html.Partial("MoviesList", Model.Movies)
+    </div>
+
+</div>

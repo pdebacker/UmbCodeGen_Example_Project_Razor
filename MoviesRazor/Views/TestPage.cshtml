@@ -1,0 +1,161 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<MoviesRazor.Models.TestModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="content">
+    <div id="sidebar" class="umbModuleContainer">
+    </div>
+
+    <div id="testmodel">
+        <h1>@Model.Title</h1>
+            <small>@Model.TimeStamp</small>
+
+            <h2>Value Types</h2>
+
+            <div><span class="property">String</span><span class="value">@Model.Testfieldstring1</span></div><br>
+            <div><span class="property">String with prefix</span><span class="value">@Model.Testfieldstring2</span></div></br>
+            <div><span class="property">String with postfix</span><span class="value">@Model.Testfieldstring3</span></div></br>
+            <br>
+            <div><span class="property">Integer prefix</span><span class="value">@Model.IntegerWithPrefix</span></div><br>
+            <div><span class="property">Integer postfix</span><span class="value">@Model.IntegerWithPostfix</span></div><br>
+            <br>
+            <div><span class="property">Double prefix</span><span class="value">@Model.DoubleWithPrefix</span></div><br>
+            <div><span class="property">Double postfix</span><span class="value">@Model.DoubleWithPostfix</span></div><br>
+            <br>
+            <div><span class="property">Boolean prefix (1)</span><span class="value">@Model.BooleanWithPrefix</span></div><br>
+            <div><span class="property">Boolean postfix (True)</span><span class="value">@Model.BooleanWithPostfix</span></div><br>
+            <br>
+            <div><span class="property">DateTime (5-12-2013)</span><span class="value">@Model.DateTimeWithPrefix</span></div><br>
+            <div><span class="property">DateTime (12/5/2013)</span><span class="value">@Model.DateTimeWithPostfix</span></div><br>
+            <br>
+
+            <h2>Standard Umbraco Data Types</h2>
+
+            <div><span class="property">Checkbox (True)</span><span class="value">@Model.Booleantrue</span></div><br>
+            <div><span class="property">Checkbox (False)</span><span class="value">@Model.Booleanfalse</span></div><br>
+            <br>
+            <div><span class="property">Checkbox list:</span><span class="value"></span></div><br>
+            <div>
+                <ul>
+                @foreach(var feature in Model.CinemaFeatures)
+                {
+                    <li>@feature</li>
+                }
+                </ul>
+            </div>
+            <br>
+            <div><span class="property">ContentPicker</span><span class="value">@Model.ContentPicker</span></div><br>
+            <div><span class="property">ContentPickerMovie</span><span class="value"><a href="@Model.ContentPickerMovie.NodeUrl">@Model.ContentPickerMovie.Title</a></span></div><br>
+            <br>
+            <div><span class="property">Date Picker with Time</span><span class="value">@Model.DatePickerWithTime</span></div><br>
+            <div><span class="property">Date Picker</span><span class="value">@Model.DatePicker</span></div><br>
+            <br>
+            <div><span class="property">DropDown Colors</span><span class="value">@Model.DropDownColors</span></div><br>
+            <div><span class="property">DropDown Multiple Fruits:</span><span class="value"></span></div><br>
+            <div>
+                <ul>
+                @foreach(var fruit in Model.DropDownMultipleFruit)
+                {
+                    <li>@fruit</li>
+                }
+                </ul>
+            </div>
+            <br>
+            <div><span class="property">DropDown publishing keys</span><span class="value">@Model.DropdownPublishingKeysField</span></div><br>
+            <br>
+            <div><span class="property">Numeric Field</span><span class="value">@Model.NumericField</span></div><br>
+            <br>
+            <div class="clearfix"><span class="property">MediaPickerField</span><span class="value"></span></div>
+            <img src="@Model.MediaPickerField.Url" title="@Model.MediaPickerField.Id">
+            <br>            
+            <br>
+            <div><span class="property">Multi Node Tree Picker Field</span><span class="value">@foreach(var treePickerItem in Model.MultiNodeTreePickerField){<text>@treePickerItem,</text> }</span></div><br>
+            <div class="clearfix"><span class="property">Tree Picker Movies:</span><span class="value"></span></div>
+            <div>
+                <ul>
+                @foreach(var movieFieldItem in Model.MultiNodeTreePickerMoviesField)
+                {    
+                    <li>@movieFieldItem.NodeId = <a href="@movieFieldItem.NodeUrl">@movieFieldItem.Title</a>, @movieFieldItem.GenreInfo.NodeName</li>
+                }
+                </ul>
+            </div>
+
+            <br>
+            <div><span class="property">Radio Box</span><span class="value">@Model.RadioButtonListField</span></div><br>
+            <br>
+            <div><span class="property">Rich text:</span></div><br>
+            <div>
+                @Html.Raw(Model.RichTextField)
+            </div>
+            <br>
+            <br>
+
+            <h2>uComponents Data Types</h2>
+
+            <div><span class="property">UrlPicker link</span><span class="value"><a href="@Model.UrlPickerField.Url" @if(Model.UrlPickerField.NewWindow){<text>target="_blank"</text>}>@Model.UrlPickerField.LinkTitle</a></span></div><br>
+            <br>
+            <div class="clearfix"><span class="property">Multi UrlPicker links:</span><span class="value"></span></div>
+            <div>
+                <ul>
+                @foreach(var multiUrlPickerFieldItem in Model.MultiUrlPickerField)
+                {    
+                    <li>
+                    <a href="@multiUrlPickerFieldItem.Url" @if(multiUrlPickerFieldItem.NewWindow){<text>target="_blank"</text>}>@multiUrlPickerFieldItem.LinkTitle</a>
+                    </li>
+                }
+                </ul>
+            </div>
+            <br>
+            <div><span class="property">Multiple dates:</span><span class="value"></span></div><br />
+            <div>
+                <ul>
+                @foreach(var dateItem in Model.MultipleDatesField)
+                {    
+                    <li>@dateItem</li>
+                }
+                </ul>
+            </div>
+             <br>
+            <div class="clearfix"><span class="property">Movies DataGrid:</span><span class="value"></span></div>
+            <div>
+                <ul>
+               @foreach(var gridItem in  Model.MoviesGrid.Items)
+               {
+                    <li>@gridItem.TextField <text>|</text> @gridItem.CheckboxField <text>|</text> @gridItem.IntegerField <text>|</text>
+                         <a href="{{UrlPickerField.Url}}">{{UrlPickerField.Url}}</a> <text>|</text>
+                         @gridItem.ColorField <text>|</text> @gridItem.DateTimePickerField <text>|</text> @gridItem.DateTimeValueField</li>
+               }
+                </ul>
+            </div>
+            <br>
+            <div class="clearfix"><span class="property">SQL Checkbox list:</span><span class="value"></span></div>
+            <div> 
+                <ul>
+                @foreach(var checkboxItem in Model.SQLCheckboxListField)
+                {
+                    <li>@checkboxItem</li>
+                }
+                </ul>
+            </div>
+            <br>
+            <div><span class="property">SQL Dropdown</span><span class="value">@Model.SQLDropdownField</span></div>
+            <br>
+            <br>
+
+            <h2>Children</h2>
+
+            <div class="bodyText">
+                @foreach(var paragraph in Model.Paragraphs)
+                {
+                    <div class="clearfix">
+                    <h2>@paragraph.SubTitle</h2>
+                    @if(paragraph.Image!= null){<img src="@paragraph.Image.Url">}
+                    @Html.Raw(paragraph.Text)
+                    </div>
+                }
+            </div>
+    </div>
+
+</div>

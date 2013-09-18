@@ -1,0 +1,10 @@
+﻿@model MoviesRazor.Models.NavigationMenu
+
+<nav>
+    <ul id="topNavigation">
+        @foreach(var item in Model.MenuItems)
+        {
+            <li @if(item.Current){<text>class="current"</text>}><a class="navigation" href="@item.HyperLink.Url"><span>@item.NodeName</span></a></li>
+        }
+        </ul>
+</nav>

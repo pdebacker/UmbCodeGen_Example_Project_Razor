@@ -1,0 +1,16 @@
+﻿@model MoviesRazor.Models.Movies
+
+<h1>@Model.Header</h1>
+<p>@Model.IntoText</p>
+<ul>
+    @foreach (var movieListItem in Model.MovieListItems)
+    {
+        <li>
+            <h3>@movieListItem.Title</h3>
+            <a href="@movieListItem.NodeUrl">
+                <img src="@movieListItem.Image.Url"></a>
+            <div>@movieListItem.Genre.NodeName</div>
+        </li>
+    }
+</ul>
+

@@ -1,0 +1,12 @@
+﻿@model MoviesRazor.Models.Genres
+
+<h3 class="filterclass">Genres</h3>
+<div class="genres">
+    <ul>
+        @foreach (var genre in Model.GenreFilterItems)
+        {
+            <li><a href="#" class="filteritem" data-item="@genre.NodeId">@genre.NodeName</a></li>
+        }
+    </ul>
+</div>
+
